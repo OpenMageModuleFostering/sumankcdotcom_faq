@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Sumankcdotcom_Faq",
+    "type": "magento-module",
+    "license": "MIT-License",
+    "homepage": "",
+    "description": "This extension allows you to present FAQ(frequently asked question) category wise ",
+    "authors": [
+    {
+        "name": "Suman K.C",
+        "email": "sumankc55@gmail.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

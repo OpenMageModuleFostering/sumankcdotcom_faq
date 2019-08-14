@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Sumankcdotcom_Faq extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Sumankcdotcom
+ * @package        Sumankcdotcom_Faq
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<layout>
+    <sumankcdotcom_faq_category_index translate="label" module="sumankcdotcom_faq">
+        <label>Categories list</label>
+        <update handle="page_two_columns_left" />
+        <reference name="content">
+            <block type="sumankcdotcom_faq/category_list" name="category_list" template="sumankcdotcom_faq/list.phtml" />
+        </reference>
+    </sumankcdotcom_faq_category_index>
+</layout>

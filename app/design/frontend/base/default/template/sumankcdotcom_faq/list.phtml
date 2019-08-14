@@ -1,0 +1,79 @@
+<?php 
+/**
+ * Sumankcdotcom_Faq extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Sumankcdotcom
+ * @package        Sumankcdotcom_Faq
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Category list template
+ *
+ * @category    Sumankcdotcom
+ * @package     Sumankcdotcom_Faq
+ * @author      Suman K.C [WWW.SUMANKC.COM]
+ */
+?>
+<!--/ just few styling to make it look ok : do change as according to your need -->
+<style type="text/css">
+    .category-list-container h2 {
+        text-transform: none;
+        margin-top: 15px;
+    }
+    .question {
+        background: #f9f9f9 none repeat scroll 0 0;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 5px;
+        padding: 5px 10px;
+    }
+    .answer {
+        display: none;
+    background: #eee none repeat scroll 0 0;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    margin-bottom: 16px;
+    padding: 13px;
+}
+</style>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_categories = $this->getCategories(); ?>
+<?php if ($_categories->getSize() > 0) :?>
+    <?php echo $this->getPagerHtml(); ?>
+    <div class="category-list-container">
+    <?php foreach ($_categories as $_category) : ?>
+
+            <h2><?php echo $_category->getCategories();?></h2>
+
+            <?php $faqs = $this->getfaqs($_category->getId()); 
+
+                foreach($faqs as $faq){
+                    echo '<div class="question">'.$faq->getQuestion().'</div>';
+                    echo '<div class="answer">'.$faq->getAnswer().'</div>';
+                }
+                
+            ?>
+        
+    <?php endforeach;?>
+    </div>
+    <?php echo $this->getPagerHtml(); ?>
+<?php else : ?>
+    <?php echo Mage::helper('sumankcdotcom_faq')->__('There are no categories at this moment');?>
+<?php endif;?>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('.question').click(function(){
+           jQuery(this).next().slideToggle();
+        });
+    })
+</script>

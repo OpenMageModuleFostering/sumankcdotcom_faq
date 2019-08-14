@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Sumankcdotcom_Faq extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Sumankcdotcom
+ * @package        Sumankcdotcom_Faq
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Sumankcdotcom_Faq>
+            <version>1.0.0</version>
+        </Sumankcdotcom_Faq>
+    </modules>
+    <global>
+        <resources>
+            <sumankcdotcom_faq_setup>
+                <setup>
+                    <module>Sumankcdotcom_Faq</module>
+                    <class>Sumankcdotcom_Faq_Model_Resource_Setup</class>
+                </setup>
+            </sumankcdotcom_faq_setup>
+        </resources>
+        <blocks>
+            <sumankcdotcom_faq>
+                <class>Sumankcdotcom_Faq_Block</class>
+            </sumankcdotcom_faq>
+        </blocks>
+        <helpers>
+            <sumankcdotcom_faq>
+                <class>Sumankcdotcom_Faq_Helper</class>
+            </sumankcdotcom_faq>
+        </helpers>
+        <models>
+            <sumankcdotcom_faq>
+                <class>Sumankcdotcom_Faq_Model</class>
+                <resourceModel>sumankcdotcom_faq_resource</resourceModel>
+            </sumankcdotcom_faq>
+            <sumankcdotcom_faq_resource>
+                <class>Sumankcdotcom_Faq_Model_Resource</class>
+                <entities>
+                    <faq>
+                        <table>sumankcdotcom_faq_faq</table>
+                    </faq>
+                    <category>
+                        <table>sumankcdotcom_faq_category</table>
+                    </category>
+                    <category_store>
+                        <table>sumankcdotcom_faq_category_store</table>
+                    </category_store>
+                </entities>
+            </sumankcdotcom_faq_resource>
+        </models>
+        <events>
+            <controller_front_init_routers>
+                <observers>
+                    <sumankcdotcom_faq>
+                        <class>Sumankcdotcom_Faq_Controller_Router</class>
+                        <method>initControllerRouters</method>
+                    </sumankcdotcom_faq>
+                </observers>
+            </controller_front_init_routers>
+        </events>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <sumankcdotcom_faq>
+                    <file>sumankcdotcom_faq.xml</file>
+                </sumankcdotcom_faq>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Sumankcdotcom_Faq>
+                    <files>
+                        <default>Sumankcdotcom_Faq.csv</default>
+                    </files>
+                </Sumankcdotcom_Faq>
+            </modules>
+        </translate>
+        <global_search>
+            <category>
+                <class>sumankcdotcom_faq/adminhtml_search_category</class>
+                <acl>sumankcdotcom_faq</acl>
+            </category>
+        </global_search>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Sumankcdotcom_Faq before="Mage_Adminhtml">Sumankcdotcom_Faq_Adminhtml</Sumankcdotcom_Faq>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <routers>
+            <sumankcdotcom_faq>
+                <use>standard</use>
+                <args>
+                    <module>Sumankcdotcom_Faq</module>
+                    <frontName>faq</frontName>
+                </args>
+            </sumankcdotcom_faq>
+        </routers>
+        <layout>
+            <updates>
+                <sumankcdotcom_faq>
+                    <file>sumankcdotcom_faq.xml</file>
+                </sumankcdotcom_faq>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Sumankcdotcom_Faq>
+                    <files>
+                        <default>Sumankcdotcom_Faq.csv</default>
+                    </files>
+                </Sumankcdotcom_Faq>
+            </modules>
+        </translate>
+    </frontend>
+    <default>
+        <sumankcdotcom_faq>
+            <faq>
+                <breadcrumbs>1</breadcrumbs>
+            </faq>
+            <category>
+                <breadcrumbs>1</breadcrumbs>
+            </category>
+        </sumankcdotcom_faq>
+    </default>
+</config>

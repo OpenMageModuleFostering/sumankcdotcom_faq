@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Sumankcdotcom_Faq extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Sumankcdotcom
+ * @package        Sumankcdotcom_Faq
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <sumankcdotcom_faq translate="title" module="sumankcdotcom_faq">
+                                        <title>Faq</title>
+                                    </sumankcdotcom_faq>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <sumankcdotcom_faq translate="title" module="sumankcdotcom_faq">
+                        <title>FAQ</title>
+                        <children>
+                            <faq translate="title" module="sumankcdotcom_faq">
+                                <title>Faq</title>
+                                <sort_order>0</sort_order>
+                            </faq>
+                            <category translate="title" module="sumankcdotcom_faq">
+                                <title>Category</title>
+                                <sort_order>10</sort_order>
+                            </category>
+                            <Setting translate="tile" module="sumankcdotcom_faq">
+                                <title>Setting</title>
+                                <sort_order>20</sort_order>
+                            </Setting>
+                        </children>
+                    </sumankcdotcom_faq>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <sumankcdotcom_faq translate="title" module="sumankcdotcom_faq">
+            <title>FAQ</title>
+            <sort_order>75</sort_order>
+            <children>
+                <faq translate="title" module="sumankcdotcom_faq">
+                    <title>Manage FAQ</title>
+                    <action>adminhtml/faq_faq</action>
+                    <sort_order>0</sort_order>
+                </faq>
+                <category translate="title" module="sumankcdotcom_faq">
+                    <title>Category</title>
+                    <action>adminhtml/faq_category</action>
+                    <sort_order>10</sort_order>
+                </category>
+                <setting translate="title" module="sumankcdotcom_faq">
+                    <title>Setting</title>
+                    <action>adminhtml/system_config/edit/section/sumankcdotcom_faq/</action>
+                    <sort_order>20</sort_order>
+                </setting>
+            </children>
+        </sumankcdotcom_faq>
+    </menu>
+</config>
